@@ -42,6 +42,8 @@ fetch("https://65ffbff5df565f1a614547df.mockapi.io/products")
       buyButton.textContent = "Beli";
       buyButton.classList.add("buy-button");
       productCard.appendChild(buyButton);
+      buyButton.addEventListener('click', () => {
+      window.location.href = '../index.html';});
 
       productContainer.appendChild(productCard);
 
