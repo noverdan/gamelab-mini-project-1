@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style/index.css" />
     <script defer src="./js/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="./asset/favicon.png" />
   </head>
   <body>
     <!-- Navbar -->
@@ -14,9 +15,9 @@
       <div>
         <img src="./asset/armos_logo_white.png" alt="logo" width="80" />
         <nav>
-          <span><a href="#">Home</a></span>
+          <span><a href="#home">Home</a></span>
+          <span><a href="#product">Product</a></span>
           <span><a href="#">About Us</a></span>
-          <span><a href="#">Product</a></span>
           <span><a href="#">Shop</a></span>
         </nav>
       </div>
@@ -24,10 +25,12 @@
 
     <main>
       <!-- Hero Page -->
-      <section class="hero">
+      <section class="hero" id="home">
         <div class="background">
           <div class="left"></div>
-          <div class="right"></div>
+          <div class="right">
+            <img src="./asset/img-hero-landing.png" alt="Images" />
+          </div>
         </div>
         <div class="content">
           <div class="left">
@@ -39,7 +42,7 @@
         </div>
       </section>
 
-      <div class="separator"></div>
+      <div class="separator" id="product"></div>
 
       <!--  Product-->
       <section class="product">
@@ -62,6 +65,42 @@
       </section>
 
       <div class="separator"></div>
+
+      <!-- About Us -->
+      <section class="about-us">
+        <div class="content">
+          <div class="left"></div>
+          <div class="right">
+            <h1>Tentang Kami</h1>
+            <p>
+              Armos Second adalah usaha thrifting yang terletak di Purwokerto.
+              Kami menyediakan pakaian bekas mulai dari kaos, jaket, kemeja,
+              celana, topi, dan lain-lain. Selain itu, juga menyediakan berbagai
+              macam pakaian lainnya yang dapat Anda beli dengan harga yang
+              terjangkau. Armos Second menjadi pilihan yang sesuai bagi Anda
+              yang mencari pakaian bekas dengan kualitas yang bagus dan harga
+              terjangkau
+            </p>
+            <button id="cta-about">
+              <p>Selengkapnya</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill="currentColor"
+                  d="M8.6 3.4L14.2 9H2v2h12.2l-5.6 5.6L10 18l8-8l-8-8z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="img-content">
+          <img src="./asset/img-about-landing.png" alt="About" />
+        </div>
+      </section>
 
       <section style="width: 100%; height: 400px"></section>
     </main>
