@@ -394,3 +394,76 @@ body{
     width: 95%;
     object-fit: contain;
 }
+
+
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: #0f0f0f;
+}
+.container-footer{
+    display: flex;
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+}
+.container-footer .left{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.container-footer .left .sep{
+    width: 1px;
+    height: 70px;
+    background-color: white;
+    margin: 0 20px;
+
+}
+.container-footer .left .footer-info{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.footer-info p{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    font-weight: 300;
+    font-size: small;
+}
+
+.container-footer .right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    color: white;
+    justify-content: flex-end;
+    font-size: small;
+}
+.container-footer .right .navigate{
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: end;
+}
+.container-footer .right .nav{
+    display: flex;
+    gap: 15px;
+}
+.container-footer .right .sosmed{
+    display: flex;
+    gap: 20px;
+}
+.container-footer .right a{
+    color: white;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+footer .get-it{
+    cursor: pointer;
+}
