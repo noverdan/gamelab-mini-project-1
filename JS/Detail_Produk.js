@@ -37,4 +37,5 @@ var button = document.getElementById("buyButton");
 
 button.addEventListener("click", function () {
   window.location.href = "../index.html";
+  
 });
