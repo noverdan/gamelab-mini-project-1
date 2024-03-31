@@ -4,17 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Produk</title>
-    <link rel="stylesheet" href="/Style/Detail_Produk.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/style/Detail_Produk.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/style/index.css" />
   </head>
   <body>
-    <h1>Detail Produk</h1>
-    <div class="product-container" id="productContainer">
+    <header class="navbar">
+      <div id="navbar-placeholder"></div>
+    </header>
 
-    </div>
+    <main>
+      <div id="detail-produk">
+        <div id="gambarproduk" class="gambar-produk">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <img src="/asset/cat-jacket-vest.jpg" alt="gambar" />
+                <div id="swiper-button">
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
 
+              </div>
+            </div>
+        </div>
+        <div id="textproduk" class="text-produk">
+          <h1 id="namaproduk" class="nama-poduk">Jaket</h1>
+          <div id="div-size" class="divsize">
+            <h4 id="size">Size</h4>
+            <p>L</p>
+          </div>
+          <div id="div-harga" class="divharga">
+            <h4 id="harga">Harga</h4>
+            <p>Rp. 200000</p>
+          </div>
+          <div id="divkategori" class="div-kategori">
+            <h4 id="kategori">Kategori</h4>
+            <p>Jaket</p>
+          </div>
+          <h4 id="deskripsi">Deskripsi</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+            cumque, suscipit blanditiis vero quod ipsam similique enim? Dolores,
+            odit voluptatem! Minus doloribus accusantium sed necessitatibus
+            nulla saepe omnis expedita hic.
+          </p>
+          <button id="buyButton" class="buy-Button">beli</button>
+        </div>
+      </div>
+    </main>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="/JS/Detail_Produk.js"></script>
-
+    <script dafer src="/js/Detail_Produk.js"></script>
+    <script dafer src="/js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </body>
 </html>

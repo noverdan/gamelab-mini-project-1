@@ -1,112 +1,113 @@
-html {
-  scroll-behavior: smooth;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit&display=swap");
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #333;
-  background: #111;
-  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  font-size: 2rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-}
-
-.product-container {
+#navbar-placeholder {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 20px;
-  /* width: calc(200% - 20px); */
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  align-items: center;
+  width: 100%;
+  height: 85px;
+  background-color: transparent;
+  transition: 0.4s;
+}
+main {
+  margin-top: 5.5rem;
+  margin-bottom: 0;
+}
+#detail-produk {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #f2f2f2;
 }
 
-.product-card {
-  position: relative;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  border-width: 2px;
-  margin-bottom: 20px;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-top: 20px;
-  transition: transform 0.3s ease-in-out;
+#detail-produk > div {
+  flex: 1;
 }
-.product-card:hover {
-  transform: scale(1.05);
+
+#detail-produk > div:first-child {
+  margin-right: 20px;
 }
-.product-card img {
+
+#detail-produk > #gambarproduk img {
   max-width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  margin-left: 20px;
 }
 
-.product-images-swiper {
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-}
-
-.swiper-slide img {
+.swiper-container {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  transform: translateY(-200%);
-  width: 30px;
-  height: 30px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  z-index: 10;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
 .swiper-button-prev {
-  left: 10px;
+  margin-left: 8px;
 }
 .swiper-button-next {
-  right: 10px;
+  margin-right: 25px;
 }
-.product-description {
-  margin-top: 10px;
+
+#detail-produk > #gambarproduk img:hover {
+  transform: scale(1.05);
 }
-.product-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  grid-gap: 5px;
-  text-align: center;
-  margin-top: 20px;
+
+#swiper-button {
+  margin-left: 0;
 }
-.product-details p {
-  margin: 5 0;
-  padding: 0;
+
+#detail-produk > div#textproduk {
+  font-size: 18px;
+  color: #333;
 }
-.buy-button {
-  position: absolute;
-  margin-top: 10px;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  background-color: #007bff;
-  color: white;
+
+#detail-produk > div#textproduk h1 {
+  font-size: 24px;
+}
+
+button {
+  height: 40px;
+  width: 150px;
+  background-color: black;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  margin-top: 20px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 5px;
+  transition: all 0.4s;
 }
-.buy-button:hover {
-  background-color: #0056b3;
+
+button:hover {
+  background-color: #202020;
+  transform: scale(0.95);
 }
