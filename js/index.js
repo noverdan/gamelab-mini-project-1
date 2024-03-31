@@ -67,14 +67,45 @@ category.forEach((cat) => {
 });
 
 const productList = document.querySelector(".product-list");
-const skelektorCard = /* html */`
-    <div class="card-cont">
-    <div class="card__skeleton card__image"></div>
-    <div class="card__skeleton card__text text__title"></div>
-    <div class="card__skeleton card__text"></div>
-    <div class="card__skeleton card__text"></div>
+const skeletonCard = /* html */`
+    <div class="card-cont skeleton">
+        <div class="card__skeleton card__image"></div>
+        <div class="card__skeleton card__text text__title"></div>
+        <div class="card__skeleton card__text"></div>
+        <div class="card__skeleton card__text"></div>
     </div>
 `;
-for (let i = 0; i < 8; i++) {
-    productList.innerHTML += skelektorCard;
-}
+
+$.ajax({
+    url: "https://65fe2e83b2a18489b385d31c.mockapi.io/api/products?page=1&limit=8",
+    method: "GET",
+    beforeSend: function () {
+        for (let i = 0; i < 8; i++) {
+            productList.innerHTML += skeletonCard;
+        }
+    },
+    success: function (response) {
+        console.log(response);
+        let data = response;
+        data.map((item) => {
+            productList.innerHTML += /* html */`
+            <div class="product-card">
+                <img src=${item.image[0]} alt="image" />
+                <div class="product-info">
+                    <p class="product-title">${item.name}</p>
+                    <p class="product-category">${item.category}</p>
+                    <p class="product-price">Rp ${item.price.toLocaleString('id-ID')}</p>
+                </div>
+           </div>
+            `;
+        })
+    },
+    error: function (xhr, status, error) {
+        // Handle the error response
+        // For example, display an error message
+        $(".error-message").text("Error: " + error);
+    },
+    complete: function () {
+        $(".skeleton").remove();
+    }
+});
