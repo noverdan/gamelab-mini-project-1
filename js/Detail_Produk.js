@@ -6,9 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
       var parser = new DOMParser();
       var htmlDoc = parser.parseFromString(xhr.responseText, "text/html");
       var navbarContent = htmlDoc.querySelector(".navbar");
+      var footerContent = htmlDoc.querySelector("footer").innerHTML;
 
       var navbarPlaceholder = document.getElementById("navbar-placeholder");
       navbarPlaceholder.innerHTML = navbarContent.outerHTML;
+
+      var footerPlaceholder = document.getElementById("footer-placeholder");
+      footerPlaceholder.innerHTML = footerContent;
 
       var navbarStyles = htmlDoc.querySelector(
         "style[href='/style/index.css']"
