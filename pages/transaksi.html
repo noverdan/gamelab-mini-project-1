@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #fff;
+      display: inline-block;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      border: 1px solid #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #333;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .info-label {
+      font-weight: bold;
+    }
+
+    .highlight {
+      background-color: #FF5733;
+      padding: 2px 5px;
+      border-radius: 5px;
+      margin: 0 2px;
+      display: inline-block;
+    }
+
+    .total-price {
+      float: right;
+      font-weight: bold;
+    }
+
+    .note-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .note-button:hover {
+      background-color: #45a049;
+    }
+
+    .back-button {
+      background-color: #f44336;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #d32f2f;
+    }
+
+    /* Icon panah ke kiri */
+    .back-icon {
+      font-size: 1.2em;
+      margin-right: 5px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script>
+    function copyToClipboard(element) {
+      var aux = document.createElement("input");
+      aux.setAttribute("value", element.innerText);
+      document.body.appendChild(aux);
+      aux.select();
+      document.execCommand("copy");
+      document.body.removeChild(aux);
+    }
+
+    function pesanSekarang() {
+      Swal.fire({
+        icon: 'success',
+        title: 'Pesanan berhasil!',
+        text: 'Terima kasih telah melakukan pesanan.',
+        confirmButtonColor: '#4CAF50'
+      });
+    }
+
+    function kembali() {
+      window.history.back();
+    }
+  </script>
+</head>
+<body>
+  <div class="header-container">
+    <h1>Checkout Details</h1>
+    <button class="back-button" onclick="kembali()">&#9664; Kembali</button>
+  </div>
+  <div class="section">
+    <div class="info-row">
+      <div class="info-label">Waktu Order:</div>
+      <span>22.48 A</span>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Kustomer:</div>
+      <span>
+        Raihan Achmad Suhada
+      </span>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Alamat:</div>
+      <span>
+        Jalan Evakuasi Gang Langgar, Cirebon
+      </span>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Store:</div>
+      <span>Armos Second</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="order-details">
+      <ul>
+        <li>
+          <div class="info-row">
+            <div class="info-label">Produk:</div>
+            <span>Nike Big Swoosh Crewneck</span>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Kategori:</div>
+            <span>Hoodie & Sweater</span>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Harga:</div>
+            <span>Rp300.000,</span>
+            <span class="total-price">Total: Rp300.000,</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="section">
+      <form class="form">
+        <div class="form-field">
+          <label for="shipping-method">Pilih Layanan Pengiriman:</label>
+          <select id="shipping-method" name="shipping-method">
+            <option value="JNT">JNT</option>
+            <option value="Gojek">Gojek</option>
+            <option value="Tiki">Tiki</option>
+            <option value="Pos Indonesia">Pos Indonesia</option>
+            <!-- Tambahkan opsi pengiriman lainnya di sini -->
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="payment-method">Pilih Metode Pembayaran:</label>
+          <select id="payment-method" name="payment-method">
+            <option value="Bank Transfer">Bank Transfer</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <!-- Tambahkan opsi metode pembayaran lainnya di sini -->
+          </select>
+        </div>
+      </form>
+      <div class="info-row">
+        <div class="info-label">Estimated Delivery:</div>
+        <span>6 Apr</span>
+      </div>
+    </div>
+  </div>
+  <button class="note-button" onclick="pesanSekarang()">Pesan Sekarang</button>
+</body>
+</html>
