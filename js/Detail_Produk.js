@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var parser = new DOMParser();
       var htmlDoc = parser.parseFromString(xhr.responseText, "text/html");
-      var navbarContent = htmlDoc.querySelector(".navbar");
+      var navbarContent = htmlDoc.querySelector("header");
       var footerContent = htmlDoc.querySelector("footer").innerHTML;
 
       var navbarPlaceholder = document.getElementById("navbar-placeholder");
@@ -40,6 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
 var button = document.getElementById("buyButton");
 
 button.addEventListener("click", function () {
-  window.location.href = "../index.html";
+  window.location.href = "/pages/transaksi.html";
   
 });
