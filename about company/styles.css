@@ -77,6 +77,11 @@ footer {
   order: -1; 
   margin-right: 20px;
 }
+.image-container2 {
+  flex: 0;
+  order: 0; 
+  margin-right: 20px;
+}
 
 .text-content {
 font-size: 25px;
