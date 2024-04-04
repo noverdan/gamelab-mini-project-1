@@ -59,7 +59,7 @@ let categoryList = document.querySelector(".category");
 category.forEach((cat) => {
     categoryList.innerHTML += /* html */`
         <div id=${"cat-" + cat.id} style="background-image: url(${cat.image});" class="category-item"
-        onclick="window.location.href = '../pages/list-product.html?category=${cat.name}'">
+        onclick="window.location.href = '../pages/list-product.html?category=${encodeURIComponent(cat.name)}'">
             <div class="overlay">
                 <h4>${cat.name}</h4>
             </div>
