@@ -396,6 +396,62 @@ body{
     object-fit: contain;
 }
 
+.testimoni{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 1024px;
+    margin: 50px auto;
+    height: fit-content;
+}
+.testimoni h1{
+    margin: 0;
+    font-size: xx-large;
+}
+.testimoni p{
+    margin: 0;
+    font-weight: 500;
+}
+.testimoni-wrapped {
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+    width: 1024px;
+    height: fit-content;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+.testimoni-card {
+    background-color: white;
+    border: 1.5px solid #0f0f0f;
+    box-shadow: 5px 5px 0px 0 #0f0f0f;
+    border-radius: 8px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+.testimoni-card .profile{
+    gap: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.testimoni-card .profile h4{
+    margin: 0;
+}
+.testimoni-card .profile img{
+    background-color: #c7c7c7;
+    width: 55px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%;
+}
 
 footer{
     width: 100%;
