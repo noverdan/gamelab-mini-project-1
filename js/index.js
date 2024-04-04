@@ -90,7 +90,9 @@ $.ajax({
         let data = response;
         data.map((item) => {
             productList.innerHTML += /* html */`
-            <div class="product-card">
+            <div 
+            class="product-card" 
+            onclick="window.location.href = '../pages/Detail_Produk.html?id=${item.id}'">
                 <img src=${item.image[0]} alt="image" />
                 <div class="product-info">
                     <p class="product-title">${item.name}</p>
