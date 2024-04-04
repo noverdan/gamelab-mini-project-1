@@ -4,117 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout Details</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-      color: #fff;
-      display: inline-block;
-    }
-
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      border: 1px solid #fff;
-      padding: 10px;
-      margin-bottom: 10px;
-      background-color: #333;
-    }
-
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .info-label {
-      font-weight: bold;
-    }
-
-    .highlight {
-      background-color: #FF5733;
-      padding: 2px 5px;
-      border-radius: 5px;
-      margin: 0 2px;
-      display: inline-block;
-    }
-
-    .total-price {
-      float: right;
-      font-weight: bold;
-    }
-
-    .note-button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .note-button:hover {
-      background-color: #45a049;
-    }
-
-    .back-button {
-      background-color: #f44336;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .back-button:hover {
-      background-color: #d32f2f;
-    }
-
-    /* Icon panah ke kiri */
-    .back-icon {
-      font-size: 1.2em;
-      margin-right: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="../style/transaksi.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <script>
-    function copyToClipboard(element) {
-      var aux = document.createElement("input");
-      aux.setAttribute("value", element.innerText);
-      document.body.appendChild(aux);
-      aux.select();
-      document.execCommand("copy");
-      document.body.removeChild(aux);
-    }
-
-    function pesanSekarang() {
-      Swal.fire({
-        icon: 'success',
-        title: 'Pesanan berhasil!',
-        text: 'Terima kasih telah melakukan pesanan.',
-        confirmButtonColor: '#4CAF50'
-      });
-    }
-
-    function kembali() {
-      window.history.back();
-    }
-  </script>
+  <script src="../js/transaksi.js"></script>
 </head>
 <body>
   <div class="header-container">
@@ -128,16 +20,22 @@
     </div>
     <div class="info-row">
       <div class="info-label">Kustomer:</div>
-      <span>
-        Raihan Achmad Suhada
-      </span>
+      <input type="text" id="customer-name" placeholder="Masukkan nama Anda">
     </div>
     <div class="info-row">
       <div class="info-label">Alamat:</div>
-      <span>
-        Jalan Evakuasi Gang Langgar, Cirebon
-      </span>
+      <input type="text" id="customer-address" placeholder="Masukkan alamat Anda">
     </div>
+    <!-- transaksi.html -->
+    <div class="info-row">
+      <div class="info-label">Email:</div>
+      <input type="email" id="customer-email" placeholder="Masukkan email Anda">
+    </div>
+    <div class="info-row">
+      <div class="info-label">Nomor Telepon:</div>
+      <input type="tel" id="customer-phone" placeholder="Masukkan nomor telepon Anda">
+    </div>
+
     <div class="info-row">
       <div class="info-label">Store:</div>
       <span>Armos Second</span>
@@ -172,7 +70,6 @@
             <option value="Gojek">Gojek</option>
             <option value="Tiki">Tiki</option>
             <option value="Pos Indonesia">Pos Indonesia</option>
-            <!-- Tambahkan opsi pengiriman lainnya di sini -->
           </select>
         </div>
         <div class="form-field">
@@ -181,7 +78,6 @@
             <option value="Bank Transfer">Bank Transfer</option>
             <option value="Credit Card">Credit Card</option>
             <option value="Cash on Delivery">Cash on Delivery</option>
-            <!-- Tambahkan opsi metode pembayaran lainnya di sini -->
           </select>
         </div>
       </form>
