@@ -58,7 +58,8 @@ const category = [
 let categoryList = document.querySelector(".category");
 category.forEach((cat) => {
     categoryList.innerHTML += /* html */`
-        <div style="background-image: url(${cat.image});" class="category-item">
+        <div id=${"cat-" + cat.id} style="background-image: url(${cat.image});" class="category-item"
+        onclick="window.location.href = '../pages/list-product.html?category=${cat.name}'">
             <div class="overlay">
                 <h4>${cat.name}</h4>
             </div>
@@ -99,13 +100,9 @@ $.ajax({
            </div>
             `;
         })
+        $(".skeleton").remove();
     },
     error: function (xhr, status, error) {
-        // Handle the error response
-        // For example, display an error message
-        $(".error-message").text("Error: " + error);
-    },
-    complete: function () {
-        $(".skeleton").remove();
+        console.log(error)
     }
 });
