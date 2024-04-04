@@ -1,6 +1,20 @@
-let products;
+/**
+         * This script handles the functionality of displaying and filtering products on the list-product page.
+         */
 
-// Product
+// Define variables
+let products; // Array to store the products
+const searchButton = $("#search-button").click(() => showProductsBySearch($("#search-input").val())); // Search button element
+let categoryList = $("#category"); // Category list element
+const productList = $("#product-list"); // Product list element
+const skeletonCard = $("<div>")
+    .addClass("card-cont skeleton")
+    .append($("<div>").addClass("card__skeleton card__image"))
+    .append($("<div>").addClass("card__skeleton card__text text__title"))
+    .append($("<div>").addClass("card__skeleton card__text"))
+    .append($("<div>").addClass("card__skeleton card__text"));
+
+// Product categories
 const category = [
     {
         id: 1,
@@ -34,68 +48,98 @@ const category = [
     }
 ];
 
-let categoryList = $("#category");
+// Create category items and attach event listeners
 category.forEach((cat) => {
-    const categoryItem = $("<div>").css("background-image", `url(${cat.image})`).addClass("category-item");
-    const overlay = $("<div>").addClass("overlay");
-    const categoryName = $("<h4>").text(cat.name);
-    overlay.append(categoryName);
-    categoryItem.append(overlay);
-    categoryList.append(categoryItem);
+    const categoryItem = $(`<div id="category-${cat.id}">`)
+        .css("background-image", `url(${cat.image})`)
+        .addClass("category-item")
+        .click(() => {
+            $("#category-title").text(`Collection / ${cat.name}`);
+            showProductsByCategory(cat.name);
+        })
+        .append($("<div>").addClass("overlay").append($("<h4>").text(cat.name)))
+        .appendTo(categoryList);
 });
 
-const productList = $("#product-list");
-const skeletonCard = $("<div>").addClass("card-cont skeleton");
+// Define functions
 
-const skeletonImage = $("<div>").addClass("card__skeleton card__image");
-skeletonCard.append(skeletonImage);
+/**
+ * Display skeleton cards to indicate loading state.
+ */
+const showSkeleton = () => {
+    for (let i = 0; i < 6; i++) {
+        productList.append(skeletonCard.clone());
+    }
+}
 
-const skeletonTitle = $("<div>").addClass("card__skeleton card__text text__title");
-skeletonCard.append(skeletonTitle);
+/**
+ * Remove skeleton cards to hide loading state.
+ */
+const hideSkeleton = () => {
+    $(".skeleton").remove();
+}
 
-const skeletonText1 = $("<div>").addClass("card__skeleton card__text");
-skeletonCard.append(skeletonText1);
-
-const skeletonText2 = $("<div>").addClass("card__skeleton card__text");
-skeletonCard.append(skeletonText2);
-
-$.ajax({
-    url: "https://65fe2e83b2a18489b385d31c.mockapi.io/api/products",
-    method: "GET",
-    beforeSend: function () {
-        for (let i = 0; i < 8; i++) {
-            productList.append(skeletonCard.clone());
-        }
-    },
-    success: function (response) {
-        console.log(response);
-        products = response;
+/**
+ * Display products on the page.
+ * @param {Array} products - The array of products to display.
+ */
+const showProducts = (products) => {
+    if (products.length === 0) {
+        productList.append($("<p>").text("Produk Tidak Ditemukan."));
+    } else {
         products.forEach((item) => {
-            const productCard = $("<div>").addClass("product-card");
-
-            const productImage = $("<img>").attr("src", item.image[0]).attr("alt", "image");
-            productCard.append(productImage);
-
-            const productInfo = $("<div>").addClass("product-info");
-
-            const productTitle = $("<p>").addClass("product-title").text(item.name);
-            productInfo.append(productTitle);
-
-            const productCategory = $("<p>").addClass("product-category").text(item.category);
-            productInfo.append(productCategory);
-
-            const productPrice = $("<p>").addClass("product-price").text(`Rp ${item.price.toLocaleString('id-ID')}`);
-            productInfo.append(productPrice);
-
-            productCard.append(productInfo);
+            const productCard = $("<div>").addClass("product-card")
+                .append($("<img>").attr("src", item.image[0]).attr("alt", "image"))
+                .append($("<div>").addClass("product-info")
+                    .append($("<p>").addClass("product-title").text(item.name))
+                    .append($("<p>").addClass("product-category").text(item.category))
+                    .append($("<p>").addClass("product-price").text(`Rp ${item.price.toLocaleString('id-ID')}`)));
 
             productList.append(productCard);
         });
+    }
+}
+
+/**
+ * Display products filtered by category.
+ * @param {string} category - The category to filter by.
+ */
+const showProductsByCategory = (category) => {
+    productList.empty();
+    const filteredProducts = products.filter((item) => item.category === category);
+    showSkeleton();
+    setTimeout(() => {
+        hideSkeleton();
+        showProducts(filteredProducts);
+    }, 650);
+}
+
+/**
+ * Display products filtered by search keyword.
+ * @param {string} keyword - The search keyword.
+ */
+const showProductsBySearch = (keyword) => {
+    productList.empty();
+    const filteredProducts = products.filter((item) => item.name.toLowerCase().includes(keyword.toLowerCase()));
+    showSkeleton();
+    setTimeout(() => {
+        hideSkeleton();
+        showProducts(filteredProducts);
+    }, 650);
+}
+
+// Fetch products from API
+$.ajax({
+    url: "https://65fe2e83b2a18489b385d31c.mockapi.io/api/products",
+    method: "GET",
+    beforeSend: () => showSkeleton(),
+    success: function (response) {
+        products = response;
+        showProducts(products);
     },
     error: function (_, _, error) {
+        console.info(error);
         alert("An error occurred. Please try again later.");
     },
-    complete: function () {
-        $(".skeleton").remove();
-    }
+    complete: () => hideSkeleton(),
 });
