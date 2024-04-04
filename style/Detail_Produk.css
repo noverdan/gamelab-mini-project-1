@@ -71,17 +71,6 @@ main {
   flex: 1;
 }
 
-/* #detail-produk > div:first-child {
-  margin-right: 20px;
-} */
-
-/* #detail-produk > #gambarproduk img {
-  max-width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-  margin-left: 20px;
-} */
-
 .splide {
   width: 500px;
   height: 500px;
@@ -99,20 +88,6 @@ main {
   width: inherit;
   object-fit: cover;
 }
-
-/* #gambarproduk img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  border-radius: 10px;
-} */
-
-/* #detail-produk > #gambarproduk img:hover {
-  transform: scale(1.05);
-} */
-
-/* #swiper-button {
-  margin-left: 0;
-} */
 
 #detail-produk > div#textproduk {
   font-size: 18px;
