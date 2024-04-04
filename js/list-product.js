@@ -100,7 +100,7 @@ const showProducts = (products) => {
                     .append($("<p>").addClass("product-category").text(item.category))
                     .append($("<p>").addClass("product-price").text(`Rp ${item.price.toLocaleString('id-ID')}`))).click(
                         () => {
-                            window.location.href = `Detail_Product.html?id=${item.id}`;
+                            window.location.href = `./Detail_Produk.html?id=${item.id}`;
                         }
                     );
 

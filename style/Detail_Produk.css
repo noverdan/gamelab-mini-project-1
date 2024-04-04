@@ -10,12 +10,51 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
-  background-color: #000000b8;
 }
 
+.navbar {
+  display: flex;
+  top: 0;
+  z-index: 1000;
+  align-items: center;
+  width: 100%;
+  height: 85px;
+  background-color: white;
+  transition: 0.4s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar img {
+  cursor: pointer;
+}
+
+.navbar div {
+  width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 40px;
+  font-weight: 700;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s;
+}
+
+.navbar nav a:hover {
+  color: #00000086;
+}
+
+
 main {
-  margin-top: 5.5rem;
-  margin-bottom: 0;
+  margin: 0 auto;
 }
 #detail-produk {
   display: flex;
@@ -38,7 +77,6 @@ main {
 #detail-produk > #gambarproduk img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
   transition: transform 0.3s ease;
   margin-left: 20px;
 }
@@ -51,7 +89,7 @@ main {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,9 +102,13 @@ main {
   width: auto;
   padding: 10px;
   transform: translateY(-50%);
-  cursor: pointer;
-  margin-left: 8px;
-  margin-right: 25px;
+  cursor: pointer; 
+}
+
+#gambarproduk img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
 }
 
 #detail-produk > #gambarproduk img:hover {
@@ -102,4 +144,85 @@ button {
 button:hover {
   background-color: #202020;
   transform: scale(0.95);
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  background-color: #0f0f0f;
+}
+
+.container-footer {
+  display: flex;
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.container-footer .left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container-footer .left .sep {
+  width: 1px;
+  height: 70px;
+  background-color: white;
+  margin: 0 20px;
+}
+
+.container-footer .left .footer-info {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer-info p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  font-weight: 300;
+  font-size: small;
+}
+
+.container-footer .right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  color: white;
+  justify-content: flex-end;
+  font-size: small;
+}
+
+.container-footer .right .navigate {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: end;
+}
+
+.container-footer .right .nav {
+  display: flex;
+  gap: 15px;
+}
+
+.container-footer .right .sosmed {
+  display: flex;
+  gap: 20px;
+}
+
+.container-footer .right a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+footer .get-it {
+  cursor: pointer;
 }
