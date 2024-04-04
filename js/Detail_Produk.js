@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  var iditem;
   var mySwiper;
   const getQueryParam = (id) => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       success: function (response) {
         console.log(response);
         const DP = response[0];
+        iditem = DP.id;
         document.getElementById("namaproduk").textContent = DP.name;
         document.getElementById("size").textContent = DP.size;
         document.getElementById("harga").textContent = `Rp. ${DP.price}`;
@@ -54,9 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Product ID is missing in URL.");
   }
 
-  var button = document.getElementById("buyButton");
+ $('#buyButton').click(function () {
+  window.location.href = (`transaksi.html?id=${iditem}`);
+ });
 
-  button.addEventListener("click", function () {
-    window.location.href = "/pages/transaksi.html";
-  });
 });
