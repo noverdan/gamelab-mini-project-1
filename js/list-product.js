@@ -5,9 +5,31 @@
 
 // Define variables
 let products; // Array to store the products
-const searchButton = $("#search-button").click(() => showProductsBySearch($("#search-input").val())); // Search button element
+const searchButton = $("#search-button"); // Search button element
+searchButton.prop("disabled", true); // Disable the button
+searchButton.click(() => showProductsBySearch($("#search-input").val()));
+const searchInput = $("#search-input");// Search input element
+searchInput.keypress((e) => {
+    if (e.which === 13) {
+        showProductsBySearch($("#search-input").val());
+    }
+});
+searchInput.on("input", () => {
+    searchButton.prop("disabled", searchInput.val().length === 0);
+    searchInput.val().length === 0 ? searchButton.css("cursor", "not-allowed") : searchButton.css("cursor", "pointer");
+});
 let categoryList = $("#category"); // Category list element
 const productList = $("#product-list"); // Product list element
+const resetButton = $("#reset-filter").click(() => {
+    productList.empty();
+    showSkeleton();
+    setTimeout(() => {
+        hideSkeleton();
+        setCategoryTitle("All");
+        showProducts(products);
+    }, 600);
+
+});
 const skeletonCard = $("<div>")
     .addClass("card-cont skeleton")
     .append($("<div>").addClass("card__skeleton card__image"))
