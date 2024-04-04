@@ -1,85 +1,94 @@
+/* transaksi.css */
 body {
-	font-family: Arial, sans-serif;
-	background-color: #000;
-	color: #fff;
-	line-height: 1.6;
-	max-width: 600px;
-	margin: 0 auto;
-}
-
-h1 {
-	font-size: 1.5em;
-	margin-bottom: 10px;
-	color: #fff;
-	display: inline-block;
-}
-
-.header-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 20px;
-}
-
-.section {
-	border: 1px solid #fff;
-	padding: 10px;
-	margin-bottom: 10px;
-	background-color: #333;
-}
-
-.info-row {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 10px;
-}
-
-.info-label {
-	font-weight: bold;
-}
-
-.highlight {
-	background-color: #ff5733;
-	padding: 2px 5px;
-	border-radius: 5px;
-	margin: 0 2px;
-	display: inline-block;
-}
-
-.total-price {
-	float: right;
-	font-weight: bold;
-}
-
-.note-button {
-	background-color: #4caf50;
-	color: white;
-	padding: 10px;
-	border-radius: 5px;
-	border: none;
-	cursor: pointer;
-}
-
-.note-button:hover {
-	background-color: #45a049;
-}
-
-.back-button {
-	background-color: #f44336;
-	color: white;
-	padding: 10px;
-	border-radius: 5px;
-	border: none;
-	cursor: pointer;
-}
-
-.back-button:hover {
-	background-color: #d32f2f;
-}
-
-/* Icon panah ke kiri */
-.back-icon {
-	font-size: 1.2em;
-	margin-right: 5px;
-}
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #fff;
+    display: inline-block;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Perubahan untuk setiap section */
+  .section {
+    border: 1px solid #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #333;
+    border-radius: 10px; /* Menambahkan border radius */
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .info-label {
+    font-weight: bold;
+  }
+  
+  /* Perubahan untuk input */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    border: 1px solid #666; /* Mengubah warna border */
+    border-radius: 5px; /* Menambahkan border radius */
+    padding: 8px; /* Menambahkan ruang padding */
+    background-color: #333; /* Mengubah warna latar belakang */
+    color: #fff; /* Mengubah warna teks */
+  }
+  
+  /* Tambahan untuk mengatur hover state input */
+  input[type="text"]:hover,
+  input[type="email"]:hover,
+  input[type="tel"]:hover,
+  select:hover {
+    border-color: #999; /* Mengubah warna border saat hover */
+  }
+  
+  /* Tambahan untuk mengatur focus state input */
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  select:focus {
+    outline: none; /* Menghapus outline */
+    border-color: #ff5733; /* Mengubah warna border saat focus */
+  }
+  
+  /* Media queries untuk tampilan mobile */
+  @media (max-width: 600px) {
+    .header-container {
+      flex-direction: column; /* Ubah tata letak menjadi vertikal */
+      text-align: center; /* Pusatkan teks */
+    }
+    .back-button {
+      margin-top: 10px; /* Beri margin atas */
+    }
+    .section {
+      padding: 8px; /* Ubah padding */
+      margin-bottom: 8px; /* Ubah margin bottom */
+    }
+    .info-row {
+      flex-direction: column; /* Ubah tata letak menjadi vertikal */
+      align-items: flex-start; /* Posisikan item ke kiri */
+    }
+    .info-label {
+      margin-bottom: 4px; /* Beri margin bawah */
+    }
+  }
