@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Outfit:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    background-color: white;
+    transition: 0.4s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar img {
+    cursor: pointer;
+}
+
+.navbar div {
+    width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 40px;
+    font-weight: 700;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.2s;
+}
+
+.navbar nav a:hover {
+    color: #00000086;
+}
+
+main {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+#hero {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 45px;
+    text-align: center;
+    background-image: url("../asset/img-hero-list.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    width: 1024px;
+    margin: 40px auto;
+    border-radius: 30px;
+}
+
+.darken {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    color: white;
+    background-size: auto;
+    background-position: center;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0f0f0f;
+    width: 40%;
+    border-radius: 10px;
+    height: 40px;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+#search img {
+    width: 20px;
+    height: 20px;
+}
+
+#search input {
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#search button {
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    outline: none;
+    width: 11%;
+    border-radius: 0 5px 5px 0;
+}
+
+#product {
+    width: 1024px;
+    margin: 50px auto;
+}
+
+#category {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+#category div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 5/4;
+    border-radius: 10px;
+    background-size: cover;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+#category div:hover {
+    scale: 1.02;
+    transition: all 0.4s;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.199);
+}
+
+#category div:active {
+    transform: scale(0.95);
+}
+
+#category div .overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.404);
+    border-radius: inherit;
+}
+
+#category div .overlay:hover {
+    background-color: rgba(0, 0, 0, 0.164);
+}
+
+#category div h4 {
+    color: white;
+    margin: 0 20px;
+    text-align: center;
+    user-select: none;
+}
+
+#category-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 50px;
+}
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Skelekton Card */
+.card-cont {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: .8rem;
+    background-color: white;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.212);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.card__skeleton {
+    background-image: linear-gradient(90deg, #ccc 0px, rgb(229 229 229 / 90%) 40px, #ccc 80px);
+    background-size: 300%;
+    background-position: 100% 0;
+    border-radius: inherit;
+    animation: shimmer 1.5s infinite;
+}
+
+.card__text {
+    width: 70%;
+    height: 15px;
+}
+
+.text__title {
+    width: 100%;
+}
+
+.card__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+@keyframes shimmer {
+    to {
+        background-position: -100% 0;
+    }
+}
+
+/* End Skelekton Card */
+
+.product-card {
+    overflow: hidden;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.212);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding-bottom: 5px;
+}
+
+.product-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.199);
+}
+
+.product-card:active {
+    transform: scale(1);
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.product-card .product-info {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-info p {
+    margin: 0;
+}
+
+.product-info .product-title {
+    font-weight: 600;
+}
+
+.product-info .product-category {
+    font-size: small;
+    color: rgb(139, 139, 139);
+}
+
+.product-info .product-price {
+    font-size: large;
+    font-weight: 700;
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #0f0f0f;
+}
+
+.container-footer {
+    display: flex;
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.container-footer .left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.container-footer .left .sep {
+    width: 1px;
+    height: 70px;
+    background-color: white;
+    margin: 0 20px;
+}
+
+.container-footer .left .footer-info {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-info p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    font-weight: 300;
+    font-size: small;
+}
+
+.container-footer .right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    color: white;
+    justify-content: flex-end;
+    font-size: small;
+}
+
+.container-footer .right .navigate {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: end;
+}
+
+.container-footer .right .nav {
+    display: flex;
+    gap: 15px;
+}
+
+.container-footer .right .sosmed {
+    display: flex;
+    gap: 20px;
+}
+
+.container-footer .right a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+
+footer .get-it {
+    cursor: pointer;
+}

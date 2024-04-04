@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Product - Armos Second</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script defer src="../js/list-product.js"></script> -->
+    <link rel="stylesheet" href="../style/list-product.css">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div>
+            <img src="../asset/armos_logo.png" alt="logo" width="80" />
+            <nav>
+                <span><a href="#home">Home</a></span>
+                <span><a href="#product">Product</a></span>
+                <span><a href="#">About Us</a></span>
+                <span><a href="#">Shop</a></span>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="hero">
+            <div class="darken">
+                <p>Item Collection</p>
+            </div>
+        </div>
+
+        <div id="search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5q0-1.875-1.312-3.187T9.5 5Q7.625 5 6.313 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14" />
+            </svg>
+            <input type="text" id="search-input" placeholder="Cari Item...">
+            <button id="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                    viewBox="0 0 20 20">
+                    <path fill="currentColor" d="M8.6 3.4L14.2 9H2v2h12.2l-5.6 5.6L10 18l8-8l-8-8z" />
+                </svg></button>
+        </div>
+
+        <section id="product">
+            <div id="category"></div>
+            <p id="category-title">Collection / All</p>
+            <div id="product-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container-footer">
+            <div class="left">
+                <img src="../asset/armos_logo_white.png" alt="logo" width="150" />
+                <div class="sep"></div>
+                <div class="footer-info">
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7l8-5V6l-8 5l-8-5v2z" />
+                        </svg>
+                        armossecond@gmail.com
+                    </p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 30 30">
+                            <path fill="currentColor"
+                                d="M16 2A11.013 11.013 0 0 0 5 13a10.889 10.889 0 0 0 2.216 6.6s.3.395.349.452L16 30l8.439-9.953c.044-.053.345-.447.345-.447l.001-.003A10.885 10.885 0 0 0 27 13A11.013 11.013 0 0 0 16 2m0 15a4 4 0 1 1 4-4a4.005 4.005 0 0 1-4 4" />
+                            <circle cx="120" cy="13" r="4" fill="none" />
+                        </svg>
+                        Jl. Suramenggala, Rejasari, Kec. Purwokerto Barat, Kabupaten
+                        Banyumas, Jawa Tengah
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="navigate">
+                    <div class="nav">
+                        <a href="#">Home</a>
+                        <a href="#">Product</a>
+                        <a href="#">About Us</a>
+                        <a href="#">Shop</a>
+                    </div>
+                    <div class="sosmed">
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" />
+                            </svg>
+                        </a>
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                            </svg>
+                        </a>
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M18.205 2.25h3.308l-7.227 8.26l8.502 11.24H16.13l-5.214-6.817L4.95 21.75H1.64l7.73-8.835L1.215 2.25H8.04l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z" />
+                            </svg>
+                        </a>
+                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="get-it">
+                    <img src="../asset/get-it-on.svg" alt="play store" width="150" />
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        /**
+         * This script handles the functionality of displaying and filtering products on the list-product page.
+         */
+
+        // Define variables
+        let products; // Array to store the products
+        const searchButton = $("#search-button").click(() => showProductsBySearch($("#search-input").val())); // Search button element
+        let categoryList = $("#category"); // Category list element
+        const productList = $("#product-list"); // Product list element
+        const skeletonCard = $("<div>")
+            .addClass("card-cont skeleton")
+            .append($("<div>").addClass("card__skeleton card__image"))
+            .append($("<div>").addClass("card__skeleton card__text text__title"))
+            .append($("<div>").addClass("card__skeleton card__text"))
+            .append($("<div>").addClass("card__skeleton card__text"));
+
+        // Product categories
+        const category = [
+            {
+                id: 1,
+                name: "Hoodie & Sweater",
+                image: "../asset/cat-hoodie-sweater.jpg"
+            },
+            {
+                id: 2,
+                name: "Flannel & Shirt",
+                image: "../asset/cat-flannel-shirt.jpg"
+            },
+            {
+                id: 3,
+                name: "T-Shirt & Polo Shirt",
+                image: "../asset/cat-tshirt-polo.jpg"
+            },
+            {
+                id: 4,
+                name: "Trousers & Pants",
+                image: "../asset/cat-trousers-pants.jpg"
+            },
+            {
+                id: 5,
+                name: "Jacket & Vest",
+                image: "../asset/cat-jacket-vest.jpg"
+            },
+            {
+                id: 6,
+                name: "Others",
+                image: "../asset/cat-others.jpg"
+            }
+        ];
+
+        // Create category items and attach event listeners
+        category.forEach((cat) => {
+            const categoryItem = $(`<div id="category-${cat.id}">`)
+                .css("background-image", `url(${cat.image})`)
+                .addClass("category-item")
+                .click(() => {
+                    $("#category-title").text(`Collection / ${cat.name}`);
+                    showProductsByCategory(cat.name);
+                })
+                .append($("<div>").addClass("overlay").append($("<h4>").text(cat.name)))
+                .appendTo(categoryList);
+        });
+
+        // Define functions
+
+        /**
+         * Display skeleton cards to indicate loading state.
+         */
+        const showSkeleton = () => {
+            for (let i = 0; i < 6; i++) {
+                productList.append(skeletonCard.clone());
+            }
+        }
+
+        /**
+         * Remove skeleton cards to hide loading state.
+         */
+        const hideSkeleton = () => {
+            $(".skeleton").remove();
+        }
+
+        /**
+         * Display products on the page.
+         * @param {Array} products - The array of products to display.
+         */
+        const showProducts = (products) => {
+            if (products.length === 0) {
+                productList.append($("<p>").text("Produk Tidak Ditemukan."));
+            } else {
+                products.forEach((item) => {
+                    const productCard = $("<div>").addClass("product-card")
+                        .append($("<img>").attr("src", item.image[0]).attr("alt", "image"))
+                        .append($("<div>").addClass("product-info")
+                            .append($("<p>").addClass("product-title").text(item.name))
+                            .append($("<p>").addClass("product-category").text(item.category))
+                            .append($("<p>").addClass("product-price").text(`Rp ${item.price.toLocaleString('id-ID')}`)));
+
+                    productList.append(productCard);
+                });
+            }
+        }
+
+        /**
+         * Display products filtered by category.
+         * @param {string} category - The category to filter by.
+         */
+        const showProductsByCategory = (category) => {
+            productList.empty();
+            const filteredProducts = products.filter((item) => item.category === category);
+            showSkeleton();
+            setTimeout(() => {
+                hideSkeleton();
+                showProducts(filteredProducts);
+            }, 650);
+        }
+
+        /**
+         * Display products filtered by search keyword.
+         * @param {string} keyword - The search keyword.
+         */
+        const showProductsBySearch = (keyword) => {
+            productList.empty();
+            const filteredProducts = products.filter((item) => item.name.toLowerCase().includes(keyword.toLowerCase()));
+            showSkeleton();
+            setTimeout(() => {
+                hideSkeleton();
+                showProducts(filteredProducts);
+            }, 650);
+        }
+
+        // Fetch products from API
+        $.ajax({
+            url: "https://65fe2e83b2a18489b385d31c.mockapi.io/api/products",
+            method: "GET",
+            beforeSend: () => showSkeleton(),
+            success: function (response) {
+                products = response;
+                showProducts(products);
+            },
+            error: function (_, _, error) {
+                console.info(error);
+                alert("An error occurred. Please try again later.");
+            },
+            complete: () => hideSkeleton(),
+        });
+
+    </script>
+</body>
+
+</html>
