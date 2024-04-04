@@ -58,6 +58,7 @@ main {
 }
 #detail-produk {
   display: flex;
+  gap: 20px;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -70,54 +71,48 @@ main {
   flex: 1;
 }
 
-#detail-produk > div:first-child {
+/* #detail-produk > div:first-child {
   margin-right: 20px;
-}
+} */
 
-#detail-produk > #gambarproduk img {
+/* #detail-produk > #gambarproduk img {
   max-width: 100%;
   height: auto;
   transition: transform 0.3s ease;
   margin-left: 20px;
+} */
+
+.splide {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.splide__track {
+  width: inherit;
+  height: inherit;
+}
+.splide__slide {
+  width: inherit;
+}
+.splide__slide img {
+  width: inherit;
+  object-fit: cover;
 }
 
-.swiper-container {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 10px;
-  transform: translateY(-50%);
-  cursor: pointer; 
-}
-
-#gambarproduk img {
+/* #gambarproduk img {
   width: 100%;
   aspect-ratio: 1/1;
   border-radius: 10px;
-}
+} */
 
-#detail-produk > #gambarproduk img:hover {
+/* #detail-produk > #gambarproduk img:hover {
   transform: scale(1.05);
-}
+} */
 
-#swiper-button {
+/* #swiper-button {
   margin-left: 0;
-}
+} */
 
 #detail-produk > div#textproduk {
   font-size: 18px;
@@ -128,7 +123,7 @@ main {
   font-size: 24px;
 }
 
-button {
+#buyButton {
   height: 40px;
   width: 150px;
   background-color: black;
@@ -141,7 +136,7 @@ button {
   transition: all 0.4s;
 }
 
-button:hover {
+#buyButton:hover {
   background-color: #202020;
   transform: scale(0.95);
 }

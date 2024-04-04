@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Produk</title>
     <link rel="stylesheet" href="/style/Detail_Produk.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
@@ -27,15 +28,16 @@
 
     <main>
       <div id="detail-produk">
-        
-        <div class="swiper-container">
-          <div class="swiper-wrapper" id="gambarproduk">
-            <div id="swiper-button">
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-            </div>
+        <section
+          class="splide"
+          role="group"
+          aria-label="Splide Basic HTML Example"
+        >
+          <div class="splide__track">
+            <ul class="splide__list"></ul>
           </div>
-        </div>
+        </section>
+
         <div id="textproduk" class="text-produk">
           <h1 id="namaproduk" class="nama-poduk"></h1>
           <div id="div-size" class="divsize">
@@ -52,7 +54,7 @@
           </div>
           <h4>Deskripsi</h4>
           <p id="deskripsi"></p>
-          <button id="buyButton" class="buy-Button">beli</button>
+          <button id="buyButton" class="buy-Button">Beli</button>
         </div>
       </div>
     </main>

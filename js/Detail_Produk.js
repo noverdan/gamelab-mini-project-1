@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   var iditem;
   var mySwiper;
+  let splide = new Splide(".splide");
+
   const getQueryParam = (id) => {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(id);
@@ -23,29 +25,18 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("kategori").textContent = DP.category;
         document.getElementById("deskripsi").innerHTML = DP.description;
 
-        const imageContainer = document.getElementById("gambarproduk");
-
-        const slide = document.createElement("div");
-        slide.classList.add("swiper-slide");
-
-        const productImage = document.createElement("img");
-        productImage.src = DP.image[0];
-        productImage.alt = DP.name;
-
-        slide.appendChild(productImage);
-        imageContainer.appendChild(slide);
-
-        // Initialize Swiper after images are added
-        mySwiper = new Swiper(imageContainer, {
-          direction: "horizontal",
-          loop: false,
-          slidesPerView: 1,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          touchMoveStopPropagation: false,
+        let carouselList = document.querySelector(".splide__list");
+        DP.image.map((image) => {
+          carouselList.innerHTML += /*html*/ `
+          <li class="splide__slide">
+            <img
+              src="${image}"
+              alt="image-${DP.name}"
+            />
+          </li>
+          `;
         });
+        splide.mount();
       },
       error: function (_, _, error) {
         console.info(error);
@@ -56,8 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Product ID is missing in URL.");
   }
 
- $('#buyButton').click(function () {
-  window.location.href = (`transaksi.html?id=${iditem}`);
- });
+  $('#buyButton').click(function () {
+    window.location.href = (`transaksi.html?id=${iditem}`);
+  });
 
 });
