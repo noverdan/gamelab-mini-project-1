@@ -1,86 +1,54 @@
-fetch("https://65ffbff5df565f1a614547df.mockapi.io/products")
-  .then((response) => response.json())
-  .then((data) => {
-    const productContainer = document.getElementById("productContainer");
+document.addEventListener("DOMContentLoaded", function () {
+  var iditem;
+  var mySwiper;
+  let splide = new Splide(".splide");
 
-    data.forEach((product) => {
-      const productCard = document.createElement("div");
-      productCard.classList.add("product-card");
+  const getQueryParam = (id) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(id);
+  };
 
-      const productName = document.createElement("h2");
-      productName.textContent = product.title;
-      productName.classList.add("product-name");
+  const productId = getQueryParam("id");
 
-      const productImages = product.image;
+  if (productId) {
+    // Fetch DPs from API
+    $.ajax({
+      url: `https://65fe2e83b2a18489b385d31c.mockapi.io/api/products?id=${productId}`,
+      method: "GET",
+      success: function (response) {
+        console.log(response);
+        const DP = response[0];
+        iditem = DP.id;
+        document.getElementById("namaproduk").textContent = DP.name;
+        document.getElementById("size").textContent = DP.size;
+        document.getElementById("harga").textContent = `Rp. ${DP.price}`;
+        document.getElementById("kategori").textContent = DP.category;
+        document.getElementById("deskripsi").innerHTML = DP.description;
 
-      const imageContainer = document.createElement("div");
-      imageContainer.classList.add("swiper-container", "product-images-swiper");
-
-      const swiperWrapper = document.createElement("div");
-      swiperWrapper.classList.add("swiper-wrapper");
-
-      productImages.forEach((imageUrl, index) => {
-        const swiperSlide = document.createElement("div");
-        swiperSlide.classList.add("swiper-slide");
-
-        const productImage = document.createElement("img");
-        productImage.src = imageUrl;
-        productImage.alt = product.title;
-        productImage.style.display = index === 0 ? "block" : "none";
-
-        swiperSlide.appendChild(productImage);
-        swiperWrapper.appendChild(swiperSlide);
-      });
-
-      imageContainer.appendChild(swiperWrapper);
-
-      const swiperButtonPrev = document.createElement("div");
-      swiperButtonPrev.classList.add("swiper-button-prev");
-
-      const swiperButtonNext = document.createElement("div");
-      swiperButtonNext.classList.add("swiper-button-next");
-
-      const productId = document.createElement("p");
-      productId.textContent = `${product.id}`;
-
-      const productPrice = document.createElement("p");
-      productPrice.textContent = `Rp. ${product.price}`;
-
-      const productDetails = document.createElement("div");
-      productDetails.classList.add("product-details");
-      productDetails.appendChild(productId);
-      productDetails.appendChild(productPrice);
-
-      const productDescription = document.createElement("p");
-      productDescription.innerHTML = product.description;
-
-      const buyButton = document.createElement('button');
-      buyButton.textContent = 'Beli';
-      buyButton.classList.add('buy-button');
-      buyButton.addEventListener('click', () => {
-          window.location.href = '../index.html';
-      });
-
-      productCard.appendChild(productName);
-      productCard.appendChild(imageContainer);
-      productCard.appendChild(productDetails);
-      productCard.appendChild(productDescription);
-      productCard.appendChild(swiperButtonPrev);
-      productCard.appendChild(swiperButtonNext);
-      productCard.appendChild(buyButton);
-
-      productContainer.appendChild(productCard);
-
-      const swiper = new Swiper(imageContainer, {
-        direction: "horizontal",
-        loop: false,
-        slidesPerView: 1,
-        navigation: {
-          nextEl: swiperButtonNext,
-          prevEl: swiperButtonPrev,
-        },
-        touchMoveStopPropagation: false 
-      });
+        let carouselList = document.querySelector(".splide__list");
+        DP.image.map((image) => {
+          carouselList.innerHTML += /*html*/ `
+          <li class="splide__slide">
+            <img
+              src="${image}"
+              alt="image-${DP.name}"
+            />
+          </li>
+          `;
+        });
+        splide.mount();
+      },
+      error: function (_, _, error) {
+        console.info(error);
+        alert("An error occurred. Please try again later.");
+      },
     });
-  })
-  .catch((error) => console.error("Error fetching data:", error));
+  } else {
+    console.error("Product ID is missing in URL.");
+  }
+
+  $('#buyButton').click(function () {
+    window.location.href = (`transaksi.html?id=${iditem}`);
+  });
+
+});

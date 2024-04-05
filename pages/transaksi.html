@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Details</title>
+  <link rel="stylesheet" href="../style/transaksi.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="../js/transaksi.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="header-container">
+    <h1>Checkout Details</h1>
+    <button class="back-button" id="backButton" onclick="kembali()">&#9664; Kembali</button>
+  </div>
+  <div class="section">
+    <div class="info-row">
+      <div class="info-label">Waktu Order:</div>
+      <span>22.48 A</span>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Kustomer:</div>
+      <input type="text" id="customer-name" placeholder="Masukkan nama Anda">
+    </div>
+    <div class="info-row">
+      <div class="info-label">Alamat:</div>
+      <input type="text" id="customer-address" placeholder="Masukkan alamat Anda">
+    </div>
+    <!-- transaksi.html -->
+    <div class="info-row">
+      <div class="info-label">Email:</div>
+      <input type="email" id="customer-email" placeholder="Masukkan email Anda">
+    </div>
+    <div class="info-row">
+      <div class="info-label">Nomor Telepon:</div>
+      <input type="tel" id="customer-phone" placeholder="Masukkan nomor telepon Anda">
+    </div>
+
+    <div class="info-row">
+      <div class="info-label">Store:</div>
+      <span>Armos Second</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="order-details">
+      <ul>
+        <li>
+          <div class="info-row">
+            <div class="info-label">Produk:</div>
+            <span id="namaproduk"></span>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Kategori:</div>
+            <span id="kategori"></span>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Harga:</div>
+            <span id="harga"></span>
+            <span class="total-price" id="hargatotal"></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="section">
+      <form class="form">
+        <div class="form-field">
+          <label for="shipping-method">Pilih Layanan Pengiriman:</label>
+          <select id="shipping-method" name="shipping-method">
+            <option value="JNT">JNT</option>
+            <option value="Gojek">Gojek</option>
+            <option value="Tiki">Tiki</option>
+            <option value="Pos Indonesia">Pos Indonesia</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="payment-method">Pilih Metode Pembayaran:</label>
+          <select id="payment-method" name="payment-method">
+            <option value="Bank Transfer">Bank Transfer</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+          </select>
+        </div>
+      </form>
+      <div class="info-row">
+        <div class="info-label">Estimated Delivery:</div>
+        <span>6 Apr</span>
+      </div>
+    </div>
+  </div>
+  <button class="note-button" onclick="pesanSekarang()" id="buyButton">Pesan Sekarang</button>
+</body>
+</html>
