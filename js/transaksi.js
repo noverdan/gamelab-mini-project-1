@@ -27,6 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
       title: "Pesanan berhasil!",
       html: `Terima kasih, ${customerName}!<br> Pesanan Anda akan dikirim ke alamat:<br> ${customerAddress}<br><br>Email: ${customerEmail}<br>Nomor Telepon: ${customerPhone}`,
       confirmButtonColor: "#4CAF50",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let pesan = `Halo, saya ingin memesan produk ini: ${document.getElementById("namaproduk").textContent}. Total harga yang harus saya bayar adalah ${document.getElementById("hargatotal").textContent}.
+        Nama: ${customerName}, Alamat: ${customerAddress}, Email: ${customerEmail}, Nomor Telepon: ${customerPhone}`;
+        let pesanEncoded = encodeURIComponent(pesan);
+        window.open(`https://api.whatsapp.com/send?phone=6285325995552&text=${pesanEncoded}`, '_blank');
+        window.history.back();
+
+      }
     });
   };
 
