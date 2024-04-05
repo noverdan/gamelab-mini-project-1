@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="../style/transaksi.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="../js/transaksi.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
   <div class="header-container">
     <h1>Checkout Details</h1>
-    <button class="back-button" onclick="kembali()">&#9664; Kembali</button>
+    <button class="back-button" id="backButton" onclick="kembali()">&#9664; Kembali</button>
   </div>
   <div class="section">
     <div class="info-row">
@@ -47,16 +48,16 @@
         <li>
           <div class="info-row">
             <div class="info-label">Produk:</div>
-            <span>Nike Big Swoosh Crewneck</span>
+            <span id="namaproduk"></span>
           </div>
           <div class="info-row">
             <div class="info-label">Kategori:</div>
-            <span>Hoodie & Sweater</span>
+            <span id="kategori"></span>
           </div>
           <div class="info-row">
             <div class="info-label">Harga:</div>
-            <span>Rp300.000,</span>
-            <span class="total-price">Total: Rp300.000,</span>
+            <span id="harga"></span>
+            <span class="total-price" id="hargatotal"></span>
           </div>
         </li>
       </ul>
